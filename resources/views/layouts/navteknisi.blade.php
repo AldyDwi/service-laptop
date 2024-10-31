@@ -18,9 +18,9 @@
                     <x-nav-link class="font-semibold" :href="route('teknisi.booking.index')" :active="request()->routeIs('teknisi.booking.index')">
                         {{ __('Booking') }}
                     </x-nav-link>
-                    <x-nav-link class="font-semibold" :href="route('report.index')" :active="request()->routeIs('report.index')">
+                    {{-- <x-nav-link class="font-semibold" :href="route('report.index')" :active="request()->routeIs('report.index')">
                         {{ __('Report') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                 </div>
             </div>
 
