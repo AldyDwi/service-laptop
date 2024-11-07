@@ -17,11 +17,8 @@ class TeknisiBookingController extends Controller
 
     public function selesai(string $id)
     {
-
-        // Temukan booking berdasarkan ID
         $booking = Booking::findOrFail($id);
         
-        // Update status booking menjadi 'Selesai'
         $booking->update([
             'status' => 'Selesai'
         ]);
@@ -57,7 +54,6 @@ class TeknisiBookingController extends Controller
             // Anda dapat memproses respons jika diperlukan
         }
 
-        // Redirect dengan pesan sukses
         return redirect()->route('teknisi.booking.index')->with('success', 'Service sudah selesai dan pesan WhatsApp telah dikirim.');
     }
 

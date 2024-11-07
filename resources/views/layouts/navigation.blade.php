@@ -34,7 +34,7 @@
                             <x-dropdown-link :href="route('booking.index')">
                                 {{ __('Booking') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('booking.index')">
+                            <x-dropdown-link :href="route('admin.testimonial.index')">
                                 {{ __('Testimoni') }}
                             </x-dropdown-link>
                         </x-slot>

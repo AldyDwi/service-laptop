@@ -11,9 +11,11 @@ use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\teknisi\ReportController;
 use App\Http\Controllers\admin\UserAdminController;
 use App\Http\Controllers\admin\PaymentTypeController;
+use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\UserTeknisiController;
 use App\Http\Controllers\admin\AdminBookingController;
 use App\Http\Controllers\admin\UserCustomerController;
+use App\Http\Controllers\user\TestimonialUserController;
 use App\Http\Controllers\admin\ServiceCategoryController;
 use App\Http\Controllers\teknisi\TeknisiBookingController;
 
@@ -47,6 +49,12 @@ Route::middleware(['auth', 'userMiddleware:3'])->group(function(){
     Route::post('/home', [BookingController::class, 'store'])->name('bookings.store');
     Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat');
     Route::get('/riwayat/{id}', [AdminBookingController::class, 'show'])->name('user.booking.show');
+
+    // Testimoni
+    Route::get('/testimoni/tambah/{booking_id}', [TestimonialUserController::class, 'create'])->name('testimonial.create');
+    Route::post('/testimoni/{booking_id}', [TestimonialUserController::class, 'store'])->name('testimonial.store');
+    Route::get('/testimoni/edit/{id}/{booking_id}', [TestimonialUserController::class, 'edit'])->name('testimonial.edit');
+    Route::put('/testimoni/update/{id}/{booking_id}', [TestimonialUserController::class, 'update'])->name('testimonial.update');
 });
 
 // Route khusus untuk admin
@@ -105,6 +113,12 @@ Route::middleware(['auth', 'userMiddleware:1'])->group(function () {
     Route::get('/admin/user-teknisi/edit/{id}', [UserTeknisiController::class, 'edit'])->name('user.teknisi.edit');
     Route::put('/admin/user-teknisi/update/{id}', [UserTeknisiController::class, 'update'])->name('user.teknisi.update');
     Route::delete('/admin/user-teknisi/delete/{id}', [UserTeknisiController::class, 'destroy'])->name('user.teknisi.destroy');
+
+    // Testimoni
+    Route::get('/admin/testimoni', [TestimonialController::class, 'index'])->name('admin.testimonial.index');
+    Route::get('/admin/testimoni/edit/{id}', [TestimonialController::class, 'edit'])->name('admin.testimonial.edit');
+    Route::put('/admin/testimoni/update/{id}', [TestimonialController::class, 'update'])->name('admin.testimonial.update');
+    Route::delete('/admin/testimoni/delete/{id}', [TestimonialController::class, 'destroy'])->name('admin.testimonial.destroy');
 });
 
 // Route khusus untuk teknisi

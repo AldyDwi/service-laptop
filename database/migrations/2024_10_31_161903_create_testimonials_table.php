@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('booking_id')->constrained('bookings')->onDelete('cascade');
             $table->date('testimoni_date');
-            $table->text('deskripsi');
+            $table->unsignedTinyInteger('rating')->default(5);
+            $table->text('description');
             $table->timestamps();
         });
     }

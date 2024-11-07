@@ -188,5 +188,54 @@
                 </div>
             </div>
         </div>
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-10">
+            <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <div class="mt-0 mb-4">
+                        <div class="text-lg font-semibold mb-2">
+                            <h3>Testimoni</h3>
+                        </div>
+                        @if($booking->testimonial)
+                            @if (Auth::user()->role_id == '3' && $booking->status == 'Dibayar')
+                                <a href="{{ route('testimonial.edit', ['id' => $booking->testimonial->id, 'booking_id' => $booking->id]) }}" class="btn btn-ghost bg-orange-500 text-white font-semibold text-base rounded-lg p-3 hover:bg-orange-600 w-20">Edit</a>
+                            @endif
+                            <div class="md:flex justify-start items-start mt-4">
+                                <div class="md:w-2/5">
+                                    <p class="mb-2 mt-3">Tanggal Testimoni</p>
+                                    <div class="p-3 rounded-md bg-gray-200 w-80">
+                                        <p>{{ $booking->testimonial->testimoni_date->format('d-m-Y') }}</p>
+                                    </div>
+                                </div>
+                                <div class="md:w-3/5">
+                                    <p class="mb-2 mt-3">Rating</p>
+                                    <div class="p-3 rounded-md bg-gray-200 w-80">
+                                        {{-- <p>{{ $booking->testimonial->rating }}</p> --}}
+                                        <p>
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $booking->testimonial->rating)
+                                                    <span>&#9733;</span> <!-- Bintang penuh -->
+                                                @else
+                                                    <span>&#9734;</span> <!-- Bintang kosong -->
+                                                @endif
+                                            @endfor
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-2 mt-3">Deskripsi</p>
+                            <div class="p-3 rounded-md bg-gray-200 w-[35rem]">
+                                <p>{{ $booking->testimonial->description }}</p>
+                            </div>
+                        @else
+                            @if (Auth::user()->role_id == '3' && $booking->status == 'Dibayar')
+                                <a href="{{ route('testimonial.create', $booking->id) }}" class="btn btn-ghost bg-cyan-500 text-white font-semibold text-base rounded-lg p-3 hover:bg-blue-600">Tambah</a>
+                            @endif
+                            <p class="mt-4">Belum ada testimoni.</p>
+                        @endif
+                    </div>                
+                </div>
+            </div>
+        </div>
     </div>
 </x-app-layout>

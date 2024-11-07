@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained('service_categories')->onDelete('cascade');
             $table->string('name');
-            $table->text('deskription');
-            $table->decimal('orice', 10, 2);
+            $table->text('description');
+            $table->string('time_estimate');
+            $table->decimal('price', 10, 2);
             $table->timestamps();
         });
     }

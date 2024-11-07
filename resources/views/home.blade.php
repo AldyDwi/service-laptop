@@ -13,13 +13,13 @@
                 </div>
             </div>
             <div class="flex justify-center mt-10 md:mt-0 ">
-                <div class="overflow-hidden">
+                <div class="overflow-hidden pr-3 pb-3">
                     <div class=" flex justify-end mb-2 md:mb-4">
-                        <img src="{{ asset('gambar/g2.png') }}" alt="Image 2" class="rounded-3xl z-0 h-32 md:h-36 lg:h-52 object-cover">
+                        <img src="{{ asset('gambar/g2.png') }}" alt="Image 2" class="rounded-3xl z-0 h-32 md:h-36 lg:h-52 object-cover shadow-[4px_4px_10px_rgba(0,0,0,0.5)]">
                     </div>
-                    <img src="{{ asset('gambar/g3.png') }}" alt="Image 3" class="rounded-3xl z-10 h-32 md:h-36 lg:h-52 object-cover">
+                    <img src="{{ asset('gambar/g3.png') }}" alt="Image 3" class="rounded-3xl z-10 h-32 md:h-36 lg:h-52 object-cover shadow-[4px_4px_10px_rgba(0,0,0,0.5)]">
                 </div>
-                <img src="{{ asset('gambar/g1.png') }}" alt="Image 1" class="rounded-3xl z-10 relative top-20 ml-2 md:ml-4 h-32 md:h-36 lg:h-52">
+                <img src="{{ asset('gambar/g1.png') }}" alt="Image 1" class="rounded-3xl z-10 relative top-20 ml-2 md:ml-4 h-32 md:h-36 lg:h-52 shadow-[4px_4px_10px_rgba(0,0,0,0.5)]">
             </div>
         </div>
     </div>
