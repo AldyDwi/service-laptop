@@ -16,9 +16,22 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link class="font-semibold" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Service') }}
-                    </x-nav-link>
+                    <x-dropdown align="left" width="48">
+                        <x-slot name="trigger">
+                            <x-nav-link class="mt-5 cursor-pointer font-semibold" :active="request()->routeIs('admin.list.index')">
+                                <span class="mb-5">{{ __('Service') }}</span>
+                            </x-nav-link>
+                        </x-slot>
+    
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('category')">
+                                {{ __('Kategori') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('admin.list.index')">
+                                {{ __('List Service') }}
+                            </x-dropdown-link>
+                        </x-slot>
+                    </x-dropdown>
 
                     <x-dropdown align="left" width="48">
                         <x-slot name="trigger">
@@ -28,9 +41,6 @@
                         </x-slot>
     
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('category')">
-                                {{ __('Kategori') }}
-                            </x-dropdown-link>
                             <x-dropdown-link :href="route('booking.index')">
                                 {{ __('Booking') }}
                             </x-dropdown-link>

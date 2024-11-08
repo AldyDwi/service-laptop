@@ -10,6 +10,7 @@ use App\Http\Controllers\user\RiwayatController;
 use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\teknisi\ReportController;
 use App\Http\Controllers\admin\UserAdminController;
+use App\Http\Controllers\admin\ListServiceController;
 use App\Http\Controllers\admin\PaymentTypeController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\UserTeknisiController;
@@ -119,6 +120,14 @@ Route::middleware(['auth', 'userMiddleware:1'])->group(function () {
     Route::get('/admin/testimoni/edit/{id}', [TestimonialController::class, 'edit'])->name('admin.testimonial.edit');
     Route::put('/admin/testimoni/update/{id}', [TestimonialController::class, 'update'])->name('admin.testimonial.update');
     Route::delete('/admin/testimoni/delete/{id}', [TestimonialController::class, 'destroy'])->name('admin.testimonial.destroy');
+
+    // List Service
+    Route::get('/admin/list-service', [ListServiceController::class, 'index'])->name('admin.list.index');
+    Route::get('/admin/list-service/tambah', [ListServiceController::class, 'create'])->name('admin.list.create');
+    Route::post('/admin/list-service', [ListServiceController::class, 'store'])->name('admin.list.store');
+    Route::get('/admin/list-service/edit/{id}', [ListServiceController::class, 'edit'])->name('admin.list.edit');
+    Route::put('/admin/list-service/edit/{id}', [ListServiceController::class, 'update'])->name('admin.list.update');
+    Route::delete('/admin/list-service/delete/{id}', [ListServiceController::class, 'destroy'])->name('admin.list.destroy');
 });
 
 // Route khusus untuk teknisi
