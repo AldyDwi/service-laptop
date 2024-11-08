@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('service_reports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('booking_id')->constrained('bookings')->onDelete('cascade');
-        $table->foreignId('technician_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('technician_id')->constrained('users')->onDelete('cascade');
             $table->text('diagnosis');
             $table->text('action_taken');
             $table->string('time_estimate');

@@ -35,7 +35,7 @@
                     Fath Comp merupakan sebuah layanan servis komputer profesional yang menyediakan solusi cepat, handal, dan terjangkau untuk berbagai kebutuhan anda. Kami melayani berbagai servis laptop, seperti instalasi perangkat lunak, upgrade ssd dan ram, dan lain-lain.
                 </p>
                 <div class="flex justify-center md:flex-none md:justify-normal">
-                    <a href="#" class="btn btn-ghost px-6 py-2 bg-cyan-500 text-white text-xl rounded-md hover:bg-cyan-600 mt-4 z-20 ml-2 lg:mt-10 relative right-1 md:right-2">Selengkapnya</a>
+                    <a href="{{ route('about') }}" class="btn btn-ghost px-6 py-2 bg-cyan-500 text-white text-xl rounded-md hover:bg-cyan-600 mt-4 z-20 ml-2 lg:mt-10 relative right-1 md:right-2">Selengkapnya</a>
                 </div>
             </div>
         </div>

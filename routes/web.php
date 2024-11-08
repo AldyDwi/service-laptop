@@ -10,6 +10,7 @@ use App\Http\Controllers\user\RiwayatController;
 use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\teknisi\ReportController;
 use App\Http\Controllers\admin\UserAdminController;
+use App\Http\Controllers\teknisi\TeknisiController;
 use App\Http\Controllers\admin\ListServiceController;
 use App\Http\Controllers\admin\PaymentTypeController;
 use App\Http\Controllers\admin\TestimonialController;
@@ -132,10 +133,7 @@ Route::middleware(['auth', 'userMiddleware:1'])->group(function () {
 
 // Route khusus untuk teknisi
 Route::middleware(['auth', 'userMiddleware:2'])->group(function () {
-    // Route::get('/teknisi/dashboard', [TeknisiController::class, 'dashboard'])->name('teknisi.dashboard');
-    Route::get('/teknisi/dashboard', function () {
-        return view('teknisi.dashboard');
-    })->name('teknisi.dashboard');
+    Route::get('/teknisi/dashboard', [TeknisiController::class, 'index'])->name('teknisi.dashboard');
 
     // Booking
     Route::get('/teknisi/booking', [TeknisiBookingController::class, 'index'])->name('teknisi.booking.index');

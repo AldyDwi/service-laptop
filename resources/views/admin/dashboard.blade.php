@@ -5,13 +5,130 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+    <div class="py-12 min-h-screen">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex justify-between">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
                 <div class="p-6 text-gray-900">
-                    {{ __("Ini admin") }}
+                    <p>Total Booking</p>
+                    <p class="text-3xl font-bold mt-2">{{ $totalBooking }}</p>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+                <div class="p-6 text-gray-900">
+                    <p>Total Menunggu</p>
+                    <p class="text-3xl font-bold mt-2">{{ $totalMenunggu }}</p>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+                <div class="p-6 text-gray-900">
+                    <p>Total Diterima</p>
+                    <p class="text-3xl font-bold mt-2">{{ $totalDiterima }}</p>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+                <div class="p-6 text-gray-900">
+                    <p>Total Proses</p>
+                    <p class="text-3xl font-bold mt-2">{{ $totalProses }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex justify-between mt-5">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+                <div class="p-6 text-gray-900">
+                    <p>Total Selesai</p>
+                    <p class="text-3xl font-bold mt-2">{{ $totalSelesai }}</p>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+                <div class="p-6 text-gray-900">
+                    <p>Total Dibayar</p>
+                    <p class="text-3xl font-bold mt-2">{{ $totalDibayar }}</p>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+                <div class="p-6 text-gray-900">
+                    <p>Customer</p>
+                    <p class="text-3xl font-bold mt-2">{{ $roleUserCount }}</p>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+                <div class="p-6 text-gray-900">
+                    <p>Teknisi</p>
+                    <p class="text-3xl font-bold mt-2">{{ $roleTeknisiCount }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
+                <div class="p-6 text-gray-900">
+                    <p>Total Pendapatan</p>
+                    <p class="text-3xl font-bold mt-2">Rp {{ number_format($totalPendapatan, 2) }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex justify-between mt-5">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-[37.3rem]">
+                <div class="p-6 text-gray-900">
+                    <p>Jumlah Booking per Bulan</p>
+                    <canvas id="bookingsChart" class="w-96 mt-2"></canvas>
+                </div>
+            </div>
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-[37.4rem]">
+                <div class="p-6 text-gray-900">
+                    <p>Total Pendapatan per Bulan</p>
+                    <canvas id="revenueChart" class="w-96 mt-2"></canvas>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const bookingsData = @json($bookingsData);
+        const revenueData = @json($revenueData);
+        const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        // Chart untuk Jumlah Booking per Bulan (Bar Chart)
+        const bookingsCtx = document.getElementById('bookingsChart').getContext('2d');
+        new Chart(bookingsCtx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Jumlah Booking',
+                    data: bookingsData,
+                    backgroundColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        // Chart untuk Total Pendapatan per Bulan (Line Chart)
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Total Pendapatan (Rp)',
+                    data: revenueData,
+                    fill: false,
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
 </x-app-layout>

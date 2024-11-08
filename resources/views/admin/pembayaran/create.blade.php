@@ -54,8 +54,8 @@
                                     <label for="amount" class="block font-medium">Uang diterima</label>
                                     <input type="text" name="amount" id="amount" class="border border-slate-400 rounded-lg p-2 mt-2 w-[28rem]" required>
                                 </div>
-                                <button type="submit" class="bg-green-500 text-white font-semibold rounded-lg p-2 mt-4 h-11 mr-1 hover:bg-green-600">Bayar</button>
-                                <a href="{{ route('booking.index') }}" class="bg-red-500 text-white font-semibold rounded-lg p-3 mt-4 hover:bg-red-600">Kembali</a>
+                                <button type="submit" class="btn btn-ghost text-base bg-green-500 text-white font-semibold rounded-lg p-2 mt-4 h-11 mr-1 hover:bg-green-600 w-20">Bayar</button>
+                                <a href="{{ route('booking.index') }}" class="btn btn-ghost text-base bg-red-500 text-white font-semibold rounded-lg p-3 mt-4 hover:bg-red-600">Kembali</a>
                             </form>
                         </div>
                     </div>
