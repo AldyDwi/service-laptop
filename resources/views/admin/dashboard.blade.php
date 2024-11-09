@@ -6,53 +6,50 @@
     </x-slot>
 
     <div class="py-12 min-h-screen">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex justify-between">
-            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+        <div class="max-w-7xl mx-5 sm:mx-auto sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
                     <p>Total Booking</p>
                     <p class="text-3xl font-bold mt-2">{{ $totalBooking }}</p>
                 </div>
             </div>
-            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
                     <p>Total Menunggu</p>
                     <p class="text-3xl font-bold mt-2">{{ $totalMenunggu }}</p>
                 </div>
             </div>
-            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
                     <p>Total Diterima</p>
                     <p class="text-3xl font-bold mt-2">{{ $totalDiterima }}</p>
                 </div>
             </div>
-            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
                     <p>Total Proses</p>
                     <p class="text-3xl font-bold mt-2">{{ $totalProses }}</p>
                 </div>
             </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex justify-between mt-5">
-            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
                     <p>Total Selesai</p>
                     <p class="text-3xl font-bold mt-2">{{ $totalSelesai }}</p>
                 </div>
             </div>
-            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
                     <p>Total Dibayar</p>
                     <p class="text-3xl font-bold mt-2">{{ $totalDibayar }}</p>
                 </div>
             </div>
-            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
                     <p>Customer</p>
                     <p class="text-3xl font-bold mt-2">{{ $roleUserCount }}</p>
                 </div>
             </div>
-            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-72 h-28">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
                     <p>Teknisi</p>
                     <p class="text-3xl font-bold mt-2">{{ $roleTeknisiCount }}</p>
@@ -60,7 +57,7 @@
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5">
+        <div class="max-w-7xl mx-5 sm:mx-auto sm:px-6 lg:px-8 mt-5">
             <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
                     <p>Total Pendapatan</p>
@@ -69,17 +66,17 @@
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex justify-between mt-5">
-            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-[37.3rem]">
+        <div class="max-w-7xl mx-5 sm:mx-auto sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-full">
                 <div class="p-6 text-gray-900">
                     <p>Jumlah Booking per Bulan</p>
-                    <canvas id="bookingsChart" class="w-96 mt-2"></canvas>
+                    <canvas id="bookingsChart" class="w-full mt-2"></canvas>
                 </div>
             </div>
-            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-[37.4rem]">
+            <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg w-full">
                 <div class="p-6 text-gray-900">
                     <p>Total Pendapatan per Bulan</p>
-                    <canvas id="revenueChart" class="w-96 mt-2"></canvas>
+                    <canvas id="revenueChart" class="w-full mt-2"></canvas>
                 </div>
             </div>
         </div>

@@ -142,16 +142,31 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('category')" :active="request()->routeIs('category')">
-                {{ __('Kategori Booking') }}
+                {{ __('Kategori Service') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.list.index')" :active="request()->routeIs('admin.list.index')">
+                {{ __('List Service') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('booking.index')" :active="request()->routeIs('booking.index')">
                 {{ __('Booking') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.testimonial.index')" :active="request()->routeIs('admin.testimonial.index')">
+                {{ __('Testimoni') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('type.index')" :active="request()->routeIs('type.index')">
                 {{ __('Tipe Pembayaran') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('payment.index')" :active="request()->routeIs('payment.index')">
                 {{ __('Pembayaran') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('user.admin.index')" :active="request()->routeIs('user.admin.index')">
+                {{ __('Kelola Admin') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('user.teknisi.index')" :active="request()->routeIs('user.teknisi.index')">
+                {{ __('Kelola Teknisi') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('user.customer.index')" :active="request()->routeIs('user.customer.index')">
+                {{ __('Kelola Customer') }}
             </x-responsive-nav-link>
         </div>
 
