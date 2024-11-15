@@ -1,5 +1,5 @@
 <x-user>
-    <div class="py-12 min-h-screen bg-slate-200">
+    <div class="py-12 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg p-6">
                 <div class="font-bold text-xl mb-10">

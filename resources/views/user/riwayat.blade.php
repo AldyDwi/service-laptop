@@ -3,7 +3,7 @@
         <h2 class="text-2xl font-semibold mb-10 mt-6">Riwayat Booking</h2>
         <div class="md:grid md:grid-cols-2 lg:grid-cols-4 mb-4">
             @forelse ($bookings as $booking)
-                <div class="rounded-lg shadow-lg p-4 w-[20rem] border mb-8">
+                <div class="rounded-lg shadow-lg p-4 w-[20rem] mb-8 bg-yellow-50">
                     <div class="relative left-48 bottom-6 w-20">
                         @if ($booking->status == 'Menunggu')
                             <div class="text-center text-sm"><span class="p-2 bg-slate-500 rounded-md text-white font-semibold">{{ $booking->status }}</span></div>

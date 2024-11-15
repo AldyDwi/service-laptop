@@ -21,20 +21,9 @@ use App\Http\Controllers\user\TestimonialUserController;
 use App\Http\Controllers\admin\ServiceCategoryController;
 use App\Http\Controllers\teknisi\TeknisiBookingController;
 
-// Route::get('/', function () {
-//     return view('home');
-// });
 Route::get('/',[UserController::class,'index'])->name('home');
 Route::get('/about',[UserController::class,'about'])->name('about');
 Route::get('/service',[UserController::class,'service'])->name('service');
-
-// Route::get('/admin/dashboard', function () {
-//     return view('admin.dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::get('/teknisi/dashboard', function () {
-//     return view('teknisi.dashboard');
-// })->middleware(['auth', 'verified'])->name('teknisi.dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

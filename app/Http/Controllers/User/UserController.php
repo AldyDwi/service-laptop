@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
     public function index() {
-        return view('home');
+        $testimonials = Testimonial::all();
+        return view('home', compact('testimonials'));
     }
     public function about() {
         return view('about');

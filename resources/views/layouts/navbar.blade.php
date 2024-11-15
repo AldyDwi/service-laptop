@@ -1,5 +1,5 @@
 <nav>
-  <div class="navbar bg-base-100 shadow-lg z-50">
+  <div class="navbar shadow-lg z-50 bg-white text-slate-900">
       <div class="navbar-start">
         <div class="dropdown">
           <div tabindex="0" role="button" class="btn btn-ghost lg:hidden hover:bg-cyan-500 hover:text-white">
@@ -31,7 +31,7 @@
           </ul>
         </div>
         <div class="font-bold">
-          <a href="{{ route('home') }}" class="btn btn-ghost hover:bg-white text-lg  font-bold">FATH <span class="text-cyan-600">COMP</span></a>
+          <a href="{{ route('home') }}" class="btn btn-ghost hover:bg-white text-lg font-bold w-40">FATH <span class="text-cyan-600">COMP</span></a>
         </div>
       </div>
       

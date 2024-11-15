@@ -16,7 +16,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @include('sweetalert::alert')
     </head>
-    <body class="font-montserrat antialiased">
+    <body class="font-montserrat antialiased bg-yellow-100">
         @include('layouts.navbar')
         <div>
             <!-- Page Content -->
