@@ -120,7 +120,7 @@
         </style>
     </head>
     <body class="font-montserrat antialiased">
-        <div class="bg-gray-100">
+        <div class="bg-gray-100" style="color-scheme: light;">
             {{-- @include('layouts.navigation') --}}
             @if (Auth::user()->role_id == '3')
                 @include('layouts.navbar')

@@ -8,7 +8,7 @@
                 </div>
                 
                 <div class="flex justify-center lg:flex-none lg:justify-normal mt-4 lg:mt-8">
-                    <a href="#" class="btn btn-ghost px-6 py-2 text-cyan-500 text-xl rounded-md hover:bg-cyan-600  hover:text-white mt-4 z-20 border-2 border-cyan-500 hover:border-cyan-600">Whatsapp</a>
+                    <a href="https://wa.me/6282335255760" class="btn btn-ghost px-6 py-2 text-cyan-500 text-xl rounded-md hover:bg-cyan-600  hover:text-white mt-4 z-20 border-2 border-cyan-500 hover:border-cyan-600">Whatsapp</a>
                     <a href="{{ route('bookings.create') }}" class="btn btn-ghost px-6 py-2 bg-cyan-500 text-white text-xl rounded-md hover:bg-cyan-600 mt-4 z-20 ml-2">Booking</a>
                 </div>
             </div>
@@ -83,7 +83,7 @@
         <h1 class="font-bold text-cyan-500 text-center text-4xl">Booking</h1>
         <div class="mt-12 md:mt-5 lg:mt-0 lg:flex lg:justify-between lg:items-center">
             <div class="lg:w-3/5 lg:pl-12 flex justify-center lg:flex-none lg:justify-start">
-                <img src="{{ asset('gambar/g5-1.png') }}" alt="Image 4" class="h-52 md:h-80 lg:h-[30rem] object-cover">
+                <img src="{{ asset('gambar/g5-2.png') }}" alt="Image 4" class="h-52 md:h-80 lg:h-[30rem] object-cover">
             </div>
             <div class="mt-10 lg:mt-0 lg:w-2/5 lg:mr-10 lg:justify-start px-5 md:px-10 lg:px-0 md:flex md:justify-center lg:flex-none">
                 <div class="hidden md:block relative w-1 h-[20rem] bg-yellow-100 left-[22px] md:top-5 z-0"></div>
@@ -276,7 +276,7 @@
                     <div>
                         <p class="text-center text-cyan-500 text-2xl md:text-4xl font-bold">Mau tanya dulu?<br>Hubungi kami disini</p>
                         <div class="flex justify-center md:mt-7 lg:mt-0">
-                            <a href="#" class="btn btn-ghost px-6 py-2 bg-cyan-500 text-white text-xl md:text-2xl rounded-lg hover:bg-cyan-600 mt-4 z-20 ml-2 lg:mt-10 relative right-2 h-12 w-52 md:h-16 md:w-64 font-medium">Whatsapp</a>
+                            <a href="https://wa.me/6282335255760" class="btn btn-ghost px-6 py-2 bg-cyan-500 text-white text-xl md:text-2xl rounded-lg hover:bg-cyan-600 mt-4 z-20 ml-2 lg:mt-10 relative right-2 h-12 w-52 md:h-16 md:w-64 font-medium">Whatsapp</a>
                         </div>
                     </div>
                     

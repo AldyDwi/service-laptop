@@ -4,7 +4,7 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center font-semibold">
+                <div class="shrink-0 flex items-center font-semibold text-gray-900">
                     <a href="{{ route('teknisi.dashboard') }}">
                         FATH <span class="text-cyan-500">COMP</span>
                     </a>

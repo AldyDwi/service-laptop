@@ -17,7 +17,7 @@
         @include('sweetalert::alert')
     </head>
     <body class="font-sans text-gray-900 antialiased">
-        <div class="flex justify-center items-center min-h-screen bg-zinc-50 lg:px-20">
+        <div class="flex justify-center items-center min-h-screen bg-yellow-100 lg:px-20">
             {{ $slot }}
         </div>
     </body>

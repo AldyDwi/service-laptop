@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('time_estimate');
             $table->date('process_date');
             $table->integer('service_cost');
-            $table->integer('parts_cost');
+            $table->integer('parts_cost')->default(0);
             $table->integer('total_cost');
             $table->timestamps();
         });

@@ -18,7 +18,7 @@
     </head>
     <body class="font-montserrat antialiased bg-yellow-100">
         @include('layouts.navbar')
-        <div>
+        <div style="color-scheme: light;">
             <!-- Page Content -->
             <main>
                 {{ $slot }}

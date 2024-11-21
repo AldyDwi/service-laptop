@@ -1,5 +1,5 @@
 <nav>
-  <div class="navbar shadow-lg z-50 bg-white text-slate-900">
+  <div class="navbar shadow-lg z-50 bg-white text-gray-900">
       <div class="navbar-start">
         <div class="dropdown">
           <div tabindex="0" role="button" class="btn btn-ghost lg:hidden hover:bg-cyan-500 hover:text-white">

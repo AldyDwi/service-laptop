@@ -23,15 +23,15 @@
                                 </div>
                                 <p class="mb-2 mt-3">Biaya service</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-[35rem]">
-                                    <p>Rp {{ number_format($report->service_cost, 2) }}</p>
+                                    <p>Rp {{ number_format($report->service_cost) }}</p>
                                 </div>
                                 <p class="mb-2 mt-3">Biaya spare part</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-[35rem]">
-                                    <p>Rp {{ number_format($report->parts_cost, 2) }}</p>
+                                    <p>Rp {{ number_format($report->parts_cost) }}</p>
                                 </div>
                                 <p class="mb-2 mt-3">Total biaya</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-[35rem]">
-                                    <p>Rp {{ number_format($report->total_cost, 2) }}</p>
+                                    <p>Rp {{ number_format($report->total_cost) }}</p>
                                 </div>
                             @else
                                 <p>No report available for this booking.</p>
@@ -39,11 +39,11 @@
                         </div>
                         <div class="md:w-2/5">
                             <h1 class="font-semibold text-xl">Form Bayar</h1>
-                            <form action="{{ route('payment.store', $bookings->id) }}" method="POST" class="mt-4">
+                            <form action="{{ route('payment.store', $bookings->id) }}" method="POST" class="mt-4" style="color-scheme: light;">
                                 @csrf
                                 <div class="mb-4">
                                     <label for="payment_type_id">Tipe Pembayaran</label><br>
-                                    <select name="payment_type_id" id="payment_type_id" class="select select-bordered w-full max-w-md mt-2" required>
+                                    <select name="payment_type_id" id="payment_type_id" class="select select-bordered w-full max-w-md mt-2 bg-white border-slate-400" required>
                                         <option value="">Pilih Tipe</option>
                                         @foreach($types as $type)
                                             <option value="{{ $type->id }}">{{ $type->name }}</option>

@@ -1,7 +1,7 @@
 <x-authentikasi>
     <div class="md:flex justify-center lg:justify-between items-center w-full">
         <div class="flex justify-center mt-10 md:mt-0">
-            <div class="lg:mr-20 w-[400px] shadow-lg shadow-slate-500 border-2 border-cyan-600 rounded-2xl px-6 pb-12 pt-6 bg-white my-5">
+            <div class="lg:mr-20 w-[400px] shadow-lg shadow-slate-500 border-2 border-gray-900 rounded-2xl px-6 pb-12 pt-6 bg-white my-5">
                 <h1 class="text-cyan-600 text-2xl font-bold mb-10">Register</h1>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
@@ -69,8 +69,8 @@
             </div>
         </div>
 
-        <div class="lg:h-[400px] md:h-[300px] max-md:mt-8">
-            <img src="https://readymadeui.com/login-image.webp" class="w-full h-full max-md:w-4/5 mx-auto block object-cover" alt="Dining Experience" />
+        <div class="lg:h-[500px] md:h-[350px] max-md:mt-8 hidden lg:block">
+            <img src="{{ asset('gambar/g7.png') }}" class="w-full h-full max-md:w-4/5 mx-auto object-cover lg:relative lg:left-20" alt="Dining Experience" />
         </div>
     </div>
     
