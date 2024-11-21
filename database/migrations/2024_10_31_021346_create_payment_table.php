@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('booking_id')->constrained('bookings')->onDelete('cascade');
             $table->foreignId('payment_type_id')->constrained('payment_types')->onDelete('cascade');
-            $table->decimal('amount', 10, 2);
-            $table->decimal('change_amount', 10, 2)->default(0);
+            $table->integer('amount');
+            $table->integer('change_amount');
             $table->date('payment_date');
             $table->timestamps();
         });

@@ -130,15 +130,15 @@
                                 </div>
                                 <p class="mb-2 mt-3">Biaya Service</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-80">
-                                    <p>Rp {{ number_format($booking->serviceReport->service_cost, 2) }}</p>
+                                    <p>Rp {{ number_format($booking->serviceReport->service_cost) }}</p>
                                 </div>
                                 <p class="mb-2 mt-3">Biaya Spare Part</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-80">
-                                    <p>Rp {{ number_format($booking->serviceReport->parts_cost, 2) }}</p>
+                                    <p>Rp {{ number_format($booking->serviceReport->parts_cost) }}</p>
                                 </div>
                                 <p class="mb-2 mt-3">Biaya Total</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-80">
-                                    <p>Rp {{ number_format($booking->serviceReport->total_cost, 2) }}</p>
+                                    <p>Rp {{ number_format($booking->serviceReport->total_cost) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                                 </div>
                                 <p class="mb-2 mt-3">Jumlah Pembayaran</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-80">
-                                    <p>Rp {{ number_format($booking->payment->amount, 2) }}</p>
+                                    <p>Rp {{ number_format($booking->payment->amount) }}</p>
                                 </div>
                             </div>
                             <div class="md:w-3/5">
@@ -177,7 +177,7 @@
                                 </div>
                                 <p class="mb-2 mt-3">Kembalian</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-80">
-                                    <p>Rp {{ number_format($booking->payment->change_amount, 2) }}</p>
+                                    <p>Rp {{ number_format($booking->payment->change_amount) }}</p>
                                 </div>
                             </div>
                         </div>

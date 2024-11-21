@@ -1,5 +1,5 @@
 <x-user>
-    <div class="min-h-screen p-5">
+    <div class="min-h-screen p-5 text-gray-900">
         <h2 class="text-2xl font-semibold mb-10 mt-6">Riwayat Booking</h2>
         <div class="md:grid md:grid-cols-2 lg:grid-cols-4 mb-4">
             @forelse ($bookings as $booking)

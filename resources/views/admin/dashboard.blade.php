@@ -61,7 +61,7 @@
             <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
                     <p>Total Pendapatan</p>
-                    <p class="text-3xl font-bold mt-2">Rp {{ number_format($totalPendapatan, 2) }}</p>
+                    <p class="text-3xl font-bold mt-2">Rp {{ number_format($totalPendapatan) }}</p>
                 </div>
             </div>
         </div>

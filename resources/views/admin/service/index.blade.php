@@ -39,7 +39,7 @@
                                     <td>{{ $listService->name }}</td>
                                     <td>{{ $listService->description }}</td>
                                     <td class="text-center">{{ $listService->time_estimate }}</td>
-                                    <td class="text-center">Rp {{ number_format($listService->price, 2) }}</td>
+                                    <td class="text-center">Rp {{ number_format($listService->price) }}</td>
                                     <td>
                                         <div class="flex justify-center">
                                             <a href="{{ route('admin.list.edit', $listService->id) }}" class="btn btn-ghost bg-orange-500 text-white font-semibold text-base rounded-lg p-2 hover:bg-orange-600 mr-2 w-20 text-center">Edit</a>

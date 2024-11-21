@@ -30,11 +30,11 @@
                             <label for="description" class="block font-medium">Deskripsi</label>
                             <textarea name="description" id="description" class="border border-slate-400 rounded-lg p-2 mt-1 w-2/4 h-32">{{ $testimonial->description }}</textarea>
                         </div>
-                        <button type="submit" class="bg-blue-600 text-white font-semibold rounded-lg p-2 mt-4 h-11 hover:bg-blue-800">Simpan</button>
+                        <button type="submit" class="btn btn-ghost text-base bg-orange-500 text-white font-semibold rounded-lg p-2 w-20 mt-4 h-11 hover:bg-orange-600">Edit</button>
                         @if (Auth::user()->role_id == '1')
-                            <a href="{{ route('admin.testimonial.index') }}" class="bg-red-500 text-white font-semibold rounded-lg p-3 mt-4 hover:bg-red-600">Kembali</a>
+                            <a href="{{ route('admin.testimonial.index') }}" class="btn btn-ghost text-base bg-red-500 text-white font-semibold rounded-lg p-3 mt-4 hover:bg-red-600">Kembali</a>
                         @else
-                            <a href="{{ route('user.booking.show', $bookings->id) }}" class="bg-red-500 text-white font-semibold rounded-lg p-3 mt-4 hover:bg-red-600">Kembali</a>
+                            <a href="{{ route('user.booking.show', $bookings->id) }}" class="btn btn-ghost text-base bg-red-500 text-white font-semibold rounded-lg p-3 mt-4 hover:bg-red-600">Kembali</a>
                         @endif
                     </form>
                 </div>

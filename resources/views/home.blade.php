@@ -153,7 +153,7 @@
         </div>
     </div>
 
-    <div class="mt-20 lg:mt-32 md:flex md:justify-between md:items-start md:mx-10 lg:mx-20 text-slate-900">
+    {{-- <div class="mt-20 lg:mt-32 md:flex md:justify-between md:items-start md:mx-10 lg:mx-20 text-slate-900">
         <div>
             <h1 class="font-bold text-cyan-600 text-center text-4xl md:hidden mb-10">Services</h1>
             <div class="lg:grid lg:grid-cols-3 lg:gap-7">
@@ -190,6 +190,40 @@
             <h1 class="font-bold text-cyan-600 text-4xl text-center md:text-left mb-6 mt-10 md:mt-0 hidden md:block">Services</h1>
             <p class="text-center mt-10 md:mt-0 md:text-justify md:w-96">Kami menyediakan layanan perbaikan laptop <br class="hidden lg:block"> profesional dengan kualitas terbaik. Apapun masalahnya, tim teknisi kami siap membantu, dan kepuasan pelanggan dan pelayanan yancepat menjadi prioritas utama kami dalam setiap layanan.</p>
         </div>
+    </div> --}}
+
+    <div class="mt-20 md:mt-20 lg:mt-32 text-slate-900">
+        <h1 class="font-bold text-cyan-600 text-center text-4xl">List Service</h1>
+        <div class="flex justify-center">
+            <p class="text-center text-base mt-10 md:w-[35rem] lg:w-[50rem] font-semibold">Kami menawarkan layanan perbaikan laptop profesional dengan hasil berkualitas tinggi. Berikut adalah estimasi layanan perbaikan yang kami sediakan untuk Anda.</p>
+        </div>
+        <div class="flex justify-center mt-20">
+            <div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5">
+                @forelse ($services as $service)
+                <div class="rounded-2xl h-60 w-80 lg:h-52 lg:w-96 shadow-[1px_1px_15px_rgba(0,0,0,0.3)] mx-auto bg-yellow-50 mb-5 md:mb-0">
+                    <div class="flex justify-between bg-slate-900 pt-4 px-4 w-[17rem] lg:w-[21rem] rounded-tl-2xl rounded-br-2xl">
+                        <p class="font-semibold text-base mb-2 text-yellow-100">{{ $service->name }}</p>
+                    </div>
+                    <p class="text-sm text-container h-32 lg:h-[7rem] px-4 pt-4">
+                        {{ $service->description }}
+                    </p>
+                    <div class="px-4 flex justify-between">
+                        <p class="font-semibold text-base">
+                            Rp {{ number_format($service->price) }}
+                        </p>
+                        <p class="font-semibold text-base">
+                            Estimasi {{ $service->time_estimate }}
+                        </p>
+                    </div>
+                </div>
+                @empty
+                    <p>Tidak ada list service.</p>
+                @endforelse
+            </div>
+        </div>
+        <div class="flex justify-center mt-5 lg:mt-0">
+            <a href="/service" class="btn btn-ghost px-6 py-2 bg-cyan-500 text-white text-xl rounded-md hover:bg-cyan-600 mt-4 z-20 ml-2 lg:mt-10 relative right-1 md:right-2">Selengkapnya</a>
+        </div>
     </div>
 
     <div class="mt-20 md:mt-20 lg:mt-32 text-slate-900">
@@ -199,7 +233,7 @@
         </div>
         <div class="flex justify-center mt-20">
             <div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5">
-                @foreach ($testimonials as $testimonial)
+                @forelse ($testimonials as $testimonial)
                 <div class="rounded-2xl h-60 w-80 lg:h-52 lg:w-96 shadow-[1px_1px_15px_rgba(0,0,0,0.3)] mx-auto bg-yellow-50 mb-5 md:mb-0 p-4">
                     <div class="font-semibold text-base mb-2 text-cyan-500 flex justify-start items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="text-slate-900 w-10 h-10 mr-2"><path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"></path></svg> 
@@ -227,7 +261,9 @@
                         </p>
                     </div>
                 </div>
-                @endforeach 
+                @empty
+                    <p class="text-center">Belum ada Testimoni</p>
+                @endforelse 
             </div>
         </div>
     </div>

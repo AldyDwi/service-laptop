@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\teknisi;
 
+use Carbon\Carbon;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Models\ServiceReport;
@@ -51,7 +52,7 @@ class ReportController extends Controller
             'diagnosis' => $request->diagnosis,
             'action_taken' => $request->action_taken,
             'time_estimate' => $request->time_estimate,
-            'process_date' => now(),
+            'process_date' => Carbon::now('Asia/Jakarta'),
             'service_cost' => $request->service_cost,
             'parts_cost' => $request->parts_cost,
             'total_cost' => $total,

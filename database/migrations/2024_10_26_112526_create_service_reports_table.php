@@ -19,9 +19,9 @@ return new class extends Migration
             $table->text('action_taken');
             $table->string('time_estimate');
             $table->date('process_date');
-            $table->decimal('service_cost', 10, 2);
-            $table->decimal('parts_cost', 10, 2)->default(0);
-            $table->decimal('total_cost', 10, 2);
+            $table->integer('service_cost');
+            $table->integer('parts_cost');
+            $table->integer('total_cost');
             $table->timestamps();
         });
     }

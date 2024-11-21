@@ -15,8 +15,8 @@
                             <label for="name" class="block font-medium">Nama Tipe</label>
                             <input type="text" name="name" id="name" class="border border-slate-400 rounded-lg p-2 mt-1 w-2/4" required>
                         </div>
-                        <button type="submit" class="bg-blue-600 text-white font-semibold rounded-lg p-2 mt-4 h-11 hover:bg-blue-800">Simpan</button>
-                        <a href="{{ route('type.index') }}" class="bg-red-500 text-white font-semibold rounded-lg p-3 mt-4 hover:bg-red-600">Kembali</a>
+                        <button type="submit" class="btn btn-ghost text-base bg-orange-500 text-white font-semibold rounded-lg p-2 mt-4 h-11 hover:bg-orange-600">Simpan</button>
+                        <a href="{{ route('type.index') }}" class="btn btn-ghost text-base bg-red-500 text-white font-semibold rounded-lg p-3 mt-4 hover:bg-red-600">Kembali</a>
                     </form>
                 </div>
             </div>

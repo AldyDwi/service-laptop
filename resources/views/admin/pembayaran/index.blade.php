@@ -35,9 +35,9 @@
                                     <td class="text-center">{{ $payment->id }}</td>
                                     <td class="text-center">{{ $payment->booking->booking_number }}</td>
                                     <td class="text-center">{{ $payment->paymentType->name }}</td>
-                                    <td>Rp {{ number_format($payment->booking->serviceReport->total_cost, 2) }}</td>
-                                    <td>Rp {{ number_format($payment->amount, 2) }}</td>
-                                    <td>Rp {{ number_format($payment->change_amount, 2) }}</td>
+                                    <td>Rp {{ number_format($payment->booking->serviceReport->total_cost) }}</td>
+                                    <td>Rp {{ number_format($payment->amount) }}</td>
+                                    <td>Rp {{ number_format($payment->change_amount) }}</td>
                                     <td class="text-center">{{ $payment->payment_date->format('d-m-Y') }}</td>
                                     <td>
                                         <div class="flex justify-center">
