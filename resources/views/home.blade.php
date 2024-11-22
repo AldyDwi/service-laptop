@@ -195,7 +195,7 @@
     <div class="mt-20 md:mt-20 lg:mt-32 text-slate-900">
         <h1 class="font-bold text-cyan-600 text-center text-4xl">List Service</h1>
         <div class="flex justify-center">
-            <p class="text-center text-base mt-10 md:w-[35rem] lg:w-[50rem] font-semibold">Kami menawarkan layanan perbaikan laptop profesional dengan hasil berkualitas tinggi. Berikut adalah estimasi layanan perbaikan yang kami sediakan untuk Anda.</p>
+            <p class="text-center text-base mt-10 md:w-[35rem] lg:w-[50rem] font-semibold px-3">Kami menawarkan layanan perbaikan laptop profesional dengan hasil berkualitas tinggi. Berikut adalah estimasi layanan perbaikan yang kami sediakan untuk Anda.</p>
         </div>
         <div class="flex justify-center mt-20">
             <div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5">
@@ -229,43 +229,53 @@
     <div class="mt-20 md:mt-20 lg:mt-32 text-slate-900">
         <h1 class="font-bold text-cyan-600 text-center text-4xl">Apa Kata Mereka?</h1>
         <div class="flex justify-center">
-            <p class="text-center text-base mt-10 md:w-[35rem] font-semibold">Kepercayaan Anda adalah prioritas kami. Berikut adalah cerita dari pelanggan yang telah merasakan kualitas layanan kami.</p>
+            <p class="text-center text-base mt-10 md:w-[35rem] font-semibold px-3">Kepercayaan Anda adalah prioritas kami. Berikut adalah cerita dari pelanggan yang telah merasakan kualitas layanan kami.</p>
         </div>
-        <div class="flex justify-center mt-20">
-            <div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5">
-                @forelse ($testimonials as $testimonial)
-                <div class="rounded-2xl h-60 w-80 lg:h-52 lg:w-96 shadow-[1px_1px_15px_rgba(0,0,0,0.3)] mx-auto bg-yellow-50 mb-5 md:mb-0 p-4">
-                    <div class="font-semibold text-base mb-2 text-cyan-500 flex justify-start items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="text-slate-900 w-10 h-10 mr-2"><path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"></path></svg> 
-                        <div>
-                            <p>
-                                {{ $testimonial->booking->customer->name }}
+        <div class="flex justify-center mt-20 px-10">
+            <div class="swiper-container w-full overflow-hidden h-72 px-5 py-5 relative">
+                <div class="swiper-wrapper">
+                    <!-- Setiap testimonial harus berada di dalam div `swiper-slide` -->
+                    @forelse ($testimonials as $testimonial)
+                    <div class="swiper-slide flex-shrink-0">
+                        <div class="rounded-2xl h-60 w-80 lg:h-52 lg:w-96 shadow-lg mx-auto bg-yellow-50 mb-5 md:mb-0 p-4">
+                            <div class="font-semibold text-base mb-2 text-cyan-500 flex justify-start items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="text-slate-900 w-10 h-10 mr-2">
+                                    <path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"></path>
+                                </svg> 
+                                <div>
+                                    <p>{{ $testimonial->booking->customer->name }}</p>
+                                    <p class="text-base font-semibold text-yellow-500">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            @if ($i <= $testimonial->rating)
+                                                <span>&#9733;</span> <!-- Bintang penuh -->
+                                            @else
+                                                <span>&#9734;</span> <!-- Bintang kosong -->
+                                            @endif
+                                        @endfor
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-container h-32 lg:h-[6.5rem]">
+                                {{ $testimonial->description }}
                             </p>
-                            <p class="text-base font-semibold text-yellow-500">
-                                @for ($i = 1; $i <= 5; $i++)
-                                    @if ($i <= $testimonial->rating)
-                                        <span>&#9733;</span> <!-- Bintang penuh -->
-                                    @else
-                                        <span>&#9734;</span> <!-- Bintang kosong -->
-                                    @endif
-                                @endfor
-                            </p>
+                            <div class="flex justify-end">
+                                <p class="font-semibold text-base">
+                                    {{ $testimonial->testimoni_date->format('d-m-Y') }}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-sm text-container h-32 lg:h-[6.5rem]">
-                        {{ $testimonial->description }}
-                    </p>
-                    <div class="flex justify-end">
-                        <p class="font-semibold text-base">
-                            {{ $testimonial->testimoni_date->format('d-m-Y') }}
-                        </p>
-                    </div>
+                    @empty
+                        <p class="text-center">Belum ada Testimoni</p>
+                    @endforelse
                 </div>
-                @empty
-                    <p class="text-center">Belum ada Testimoni</p>
-                @endforelse 
+                <!-- Optional navigation and pagination -->
+                {{-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> --}}
+                <div class="swiper-pagination"></div>
             </div>
         </div>
+        
     </div>
 
     <div class="mt-20 md:mt-20 lg:mt-32 mb-10 text-slate-900">

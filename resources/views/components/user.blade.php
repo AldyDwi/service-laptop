@@ -12,9 +12,44 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
+        <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}">
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @include('sweetalert::alert')
+
+        <style>
+            /* Pastikan container swiper memiliki positioning relatif */
+            .swiper-container {
+                position: relative;
+            }
+
+            /* Tentukan posisi untuk tombol navigasi dan pagination */
+            .swiper-button-prev, .swiper-button-next, .swiper-pagination {
+                position: absolute;
+                z-index: 10; /* Agar tetap di atas slide */
+            }
+
+            /* Sesuaikan posisi tombol prev dan next */
+            .swiper-button-prev {
+                left: 0px; /* Posisi kiri */
+                top: 50%; /* Vertikal di tengah */
+                transform: translateY(-50%); /* Agar benar-benar di tengah */
+            }
+
+            .swiper-button-next {
+                right: 0px; /* Posisi kanan */
+                top: 50%; /* Vertikal di tengah */
+                transform: translateY(-50%); /* Agar benar-benar di tengah */
+            }
+
+            /* Sesuaikan posisi pagination */
+            .swiper-pagination {
+                bottom: 50px; /* Posisi di bawah slide */
+                text-align: center;
+                width: 100%;
+            }
+        </style>
     </head>
     <body class="font-montserrat antialiased bg-yellow-100">
         @include('layouts.navbar')
@@ -27,6 +62,9 @@
         @include('layouts.footer')
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Swiper JS -->
+        <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
         
         <script>
             function truncateText(maxWords) {
@@ -64,5 +102,39 @@
             });
         </script>
         @endif
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const swiper = new Swiper('.swiper-container', {
+                    slidesPerView: 3,
+                    spaceBetween: 25,
+                    loop: true,
+                    centerSlide: "true",
+                    fade: "true",
+                    grabCursor: "true",
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                        dynamicBullets: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+
+                    breakpoints: {
+                        0: {
+                            slidesPerView: 1,
+                        },
+                        520: {
+                            slidesPerView: 2,
+                        },
+                        950: {
+                            slidesPerView: 3,
+                        },
+                    },
+                });
+            });
+        </script>
     </body>
 </html>

@@ -3,7 +3,7 @@
         <h1 class="font-bold text-cyan-600 text-center text-4xl">About</h1>
         <div class="md:flex md:justify-between md:items-center mt-10">
             <div class="md:w-1/2 text-justify">
-                <p class="md:w-80 lg:w-[40rem] text-lg font-medium">Fath Comp merupakan sebuah layanan servis komputer profesional yang menyediakan solusi cepat, handal, dan terjangkau untuk berbagai kebutuhan perangkat anda. Kami menangani laptop berupa instalasi perangkat lunak dengan standar tinggi, upgrade SSD dan RAM, pembersihan, perbaikan kompleks, dan lain-lain yang didukung oleh teknisi berpengalaman. Kepuasan pelanggan dan pelayanan yang cepat menjadi prioritas utama kami dalam setiap layanan.</p>
+                <p class="md:w-80 lg:w-[40rem] text-lg font-medium px-5">Fath Comp merupakan sebuah layanan servis komputer profesional yang menyediakan solusi cepat, handal, dan terjangkau untuk berbagai kebutuhan perangkat anda. Kami menangani laptop berupa instalasi perangkat lunak dengan standar tinggi, upgrade SSD dan RAM, pembersihan, perbaikan kompleks, dan lain-lain yang didukung oleh teknisi berpengalaman. Kepuasan pelanggan dan pelayanan yang cepat menjadi prioritas utama kami dalam setiap layanan.</p>
             </div>
             <div class="md:w-1/2 flex justify-center md:justify-end mt-10 md:mt-0">
                 <img src="{{ asset('gambar/g1.png') }}" alt="Image 1" class="rounded-3xl z-10 h-72 md:h-72 lg:h-96">
