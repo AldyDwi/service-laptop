@@ -19,33 +19,29 @@
         @include('sweetalert::alert')
 
         <style>
-            /* Pastikan container swiper memiliki positioning relatif */
             .swiper-container {
                 position: relative;
             }
 
-            /* Tentukan posisi untuk tombol navigasi dan pagination */
             .swiper-button-prev, .swiper-button-next, .swiper-pagination {
                 position: absolute;
-                z-index: 10; /* Agar tetap di atas slide */
+                z-index: 10;
             }
 
-            /* Sesuaikan posisi tombol prev dan next */
             .swiper-button-prev {
-                left: 0px; /* Posisi kiri */
-                top: 50%; /* Vertikal di tengah */
-                transform: translateY(-50%); /* Agar benar-benar di tengah */
+                left: 0px; 
+                top: 50%; 
+                transform: translateY(-50%); 
             }
 
             .swiper-button-next {
-                right: 0px; /* Posisi kanan */
-                top: 50%; /* Vertikal di tengah */
-                transform: translateY(-50%); /* Agar benar-benar di tengah */
+                right: 0px; 
+                top: 50%; 
+                transform: translateY(-50%); 
             }
 
-            /* Sesuaikan posisi pagination */
             .swiper-pagination {
-                bottom: 50px; /* Posisi di bawah slide */
+                bottom: 50px;
                 text-align: center;
                 width: 100%;
             }

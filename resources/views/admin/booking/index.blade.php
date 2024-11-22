@@ -7,14 +7,14 @@
 
     <div class="py-12 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div id='recipients' class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="mt-8">
                         <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                             <thead>
                                 <tr>
                                     {{-- <th data-priority="1">Id</th> --}}
-                                    <th data-priority="1">No booking</th>
+                                    <th data-priority="1">No. booking</th>
                                     <th data-priority="2">Customer</th>
                                     <th data-priority="3">Kategori</th>
                                     <th data-priority="4">Merk Laptop</th>

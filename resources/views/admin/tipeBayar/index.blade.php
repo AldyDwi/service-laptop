@@ -7,7 +7,7 @@
 
     <div class="py-12 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div id='recipients' class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="mt-2">
                         <a href="{{ route('type.create') }}" class="btn btn-ghost bg-cyan-500 text-white font-semibold text-base rounded-lg p-3 hover:bg-blue-600">Tambah</a>

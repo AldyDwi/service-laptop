@@ -7,24 +7,22 @@
 
     <div class="py-12 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div id='recipients' class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="mt-8">
                         <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                             <thead>
                                 <tr>
-                                    <th data-priority="1">Id</th>
-                                    <th data-priority="2">Booking</th>
+                                    <th data-priority="1">No. Booking</th>
                                     <th data-priority="2">Tgl Testimoni</th>
-                                    <th data-priority="2">Rating</th>
-                                    <th data-priority="3">Deskripsi</th>
-                                    <th data-priority="4">Aksi</th>
+                                    <th data-priority="3">Rating</th>
+                                    <th data-priority="4">Deskripsi</th>
+                                    <th data-priority="5">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($testimonials as $testimonial)
                                 <tr class="border-b">
-                                    <td class="text-center">{{ $testimonial->id }}</td>
                                     <td>{{ $testimonial->booking->booking_number }}</td>
                                     <td class="text-center">{{ $testimonial->testimoni_date->format('d-m-Y') }}</td>
                                     <td class="text-center">

@@ -10,7 +10,7 @@
 
     <div class="py-12 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div id='recipients' class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="mt-0">
                         <div class="text-lg font-semibold">
@@ -76,7 +76,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-10">
-            <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div id='recipients' class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="mt-0">
                         <div class="text-lg font-semibold">
@@ -97,7 +97,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-10">
-            <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div id='recipients' class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="mt-0 mb-4">
                         <div class="text-lg font-semibold mb-8">
@@ -109,6 +109,10 @@
                                 <p class="mb-2 mt-3">Nama Teknisi</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-96">
                                     <p>{{ $booking->serviceReport->technician->name }}</p>
+                                </div>
+                                <p class="mb-2 mt-3">tanggal Proses</p>
+                                <div class="p-3 rounded-md bg-gray-200 w-96">
+                                    <p>{{ $booking->serviceReport->process_date->format('d-m-Y') }}</p>
                                 </div>
                                 <p class="mb-2 mt-3">Estimasi Waktu</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-96">
@@ -124,9 +128,9 @@
                                 </div>
                             </div>
                             <div class="md:w-2/5">
-                                <p class="mb-2 mt-3">tanggal Proses</p>
+                                <p class="mb-2 mt-3">tanggal Selesai</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-80">
-                                    <p>{{ $booking->serviceReport->process_date->format('d-m-Y') }}</p>
+                                    <p>{{ $booking->serviceReport->completion_date->format('d-m-Y') }}</p>
                                 </div>
                                 <p class="mb-2 mt-3">Biaya Service</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-80">
@@ -152,7 +156,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-10">
-            <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div id='recipients' class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="mt-0 mb-4">
                         <div class="text-lg font-semibold mb-8">
@@ -190,7 +194,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-10">
-            <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div id='recipients' class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="mt-0 mb-4">
                         <div class="text-lg font-semibold mb-2">

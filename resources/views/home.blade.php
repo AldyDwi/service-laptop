@@ -198,31 +198,41 @@
             <p class="text-center text-base mt-10 md:w-[35rem] lg:w-[50rem] font-semibold px-3">Kami menawarkan layanan perbaikan laptop profesional dengan hasil berkualitas tinggi. Berikut adalah estimasi layanan perbaikan yang kami sediakan untuk Anda.</p>
         </div>
         <div class="flex justify-center mt-20">
-            <div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5">
-                @forelse ($services as $service)
-                <div class="rounded-2xl h-60 w-80 lg:h-52 lg:w-96 shadow-[1px_1px_15px_rgba(0,0,0,0.3)] mx-auto bg-yellow-50 mb-5 md:mb-0">
-                    <div class="flex justify-between bg-slate-900 pt-4 px-4 w-[17rem] lg:w-[21rem] rounded-tl-2xl rounded-br-2xl">
-                        <p class="font-semibold text-base mb-2 text-yellow-100">{{ $service->name }}</p>
+            @if ($services && $services->count() > 0)
+                <div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5">
+                    @foreach ($services as $service)
+                    <div class="rounded-2xl h-60 w-80 lg:h-52 lg:w-96 shadow-[1px_1px_15px_rgba(0,0,0,0.3)] mx-auto bg-yellow-50 mb-5 md:mb-0">
+                        <div class="flex justify-between bg-slate-900 pt-4 px-4 w-[17rem] lg:w-[21rem] rounded-tl-2xl rounded-br-2xl">
+                            <p class="font-semibold text-base mb-2 text-yellow-100">{{ $service->name }}</p>
+                        </div>
+                        <p class="text-sm text-container h-32 lg:h-[7rem] px-4 pt-4">
+                            {{ $service->description }}
+                        </p>
+                        <div class="px-4 flex justify-between">
+                            <p class="font-semibold text-base">
+                                Rp {{ number_format($service->price) }}
+                            </p>
+                            <p class="font-semibold text-base">
+                                Estimasi {{ $service->time_estimate }}
+                            </p>
+                        </div>
                     </div>
-                    <p class="text-sm text-container h-32 lg:h-[7rem] px-4 pt-4">
-                        {{ $service->description }}
-                    </p>
-                    <div class="px-4 flex justify-between">
-                        <p class="font-semibold text-base">
-                            Rp {{ number_format($service->price) }}
-                        </p>
-                        <p class="font-semibold text-base">
-                            Estimasi {{ $service->time_estimate }}
-                        </p>
+                    @endforeach
+                </div>
+            @else
+                <div>
+                    <div class="flex justify-center mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-screen-share-off"><path d="M13 3H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-3"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="m22 3-5 5"/><path d="m17 3 5 5"/></svg>
+                    </div>
+                    <div>
+                        <p>Tidak ada list service.</p>
                     </div>
                 </div>
-                @empty
-                    <p>Tidak ada list service.</p>
-                @endforelse
-            </div>
+            @endif
+            
         </div>
         <div class="flex justify-center mt-5 lg:mt-0">
-            <a href="/service" class="btn btn-ghost px-6 py-2 bg-cyan-500 text-white text-xl rounded-md hover:bg-cyan-600 mt-4 z-20 ml-2 lg:mt-10 relative right-1 md:right-2">Selengkapnya</a>
+            <a href="/service" class="btn btn-ghost px-6 py-2 bg-cyan-500 text-white text-xl rounded-md hover:bg-cyan-600 mt-4 z-20 lg:mt-10 md:right-2">Selengkapnya</a>
         </div>
     </div>
 
@@ -231,51 +241,61 @@
         <div class="flex justify-center">
             <p class="text-center text-base mt-10 md:w-[35rem] font-semibold px-3">Kepercayaan Anda adalah prioritas kami. Berikut adalah cerita dari pelanggan yang telah merasakan kualitas layanan kami.</p>
         </div>
-        <div class="flex justify-center mt-20 px-10">
-            <div class="swiper-container w-full overflow-hidden h-72 px-5 py-5 relative">
-                <div class="swiper-wrapper">
-                    <!-- Setiap testimonial harus berada di dalam div `swiper-slide` -->
-                    @forelse ($testimonials as $testimonial)
-                    <div class="swiper-slide flex-shrink-0">
-                        <div class="rounded-2xl h-60 w-80 lg:h-52 lg:w-96 shadow-lg mx-auto bg-yellow-50 mb-5 md:mb-0 p-4">
-                            <div class="font-semibold text-base mb-2 text-cyan-500 flex justify-start items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="text-slate-900 w-10 h-10 mr-2">
-                                    <path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"></path>
-                                </svg> 
-                                <div>
-                                    <p>{{ $testimonial->booking->customer->name }}</p>
-                                    <p class="text-base font-semibold text-yellow-500">
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            @if ($i <= $testimonial->rating)
-                                                <span>&#9733;</span> <!-- Bintang penuh -->
-                                            @else
-                                                <span>&#9734;</span> <!-- Bintang kosong -->
-                                            @endif
-                                        @endfor
+        @if ($testimonials && $testimonials->count() > 0)
+            <div class="flex justify-center mt-20 px-10">
+                <div class="swiper-container w-full overflow-hidden h-72 px-5 py-5 relative">
+                    <div class="swiper-wrapper">
+                        <!-- Setiap testimonial harus berada di dalam div `swiper-slide` -->
+                        @foreach ($testimonials as $testimonial)
+                        <div class="swiper-slide flex-shrink-0">
+                            <div class="rounded-2xl h-60 w-80 lg:h-52 lg:w-96 shadow-lg mx-auto bg-yellow-50 mb-5 md:mb-0 p-4">
+                                <div class="font-semibold text-base mb-2 text-cyan-500 flex justify-start items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="text-slate-900 w-10 h-10 mr-2">
+                                        <path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"></path>
+                                    </svg> 
+                                    <div>
+                                        <p>{{ $testimonial->booking->customer->name }}</p>
+                                        <p class="text-base font-semibold text-yellow-500">
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $testimonial->rating)
+                                                    <span>&#9733;</span> <!-- Bintang penuh -->
+                                                @else
+                                                    <span>&#9734;</span> <!-- Bintang kosong -->
+                                                @endif
+                                            @endfor
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-container h-32 lg:h-[6.5rem]">
+                                    {{ $testimonial->description }}
+                                </p>
+                                <div class="flex justify-end">
+                                    <p class="font-semibold text-base">
+                                        {{ $testimonial->testimoni_date->format('d-m-Y') }}
                                     </p>
                                 </div>
                             </div>
-                            <p class="text-sm text-container h-32 lg:h-[6.5rem]">
-                                {{ $testimonial->description }}
-                            </p>
-                            <div class="flex justify-end">
-                                <p class="font-semibold text-base">
-                                    {{ $testimonial->testimoni_date->format('d-m-Y') }}
-                                </p>
-                            </div>
                         </div>
+                        @endforeach
                     </div>
-                    @empty
-                        <p class="text-center">Belum ada Testimoni</p>
-                    @endforelse
+                    <!-- Optional navigation and pagination -->
+                    {{-- <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div> --}}
+                    <div class="swiper-pagination"></div>
                 </div>
-                <!-- Optional navigation and pagination -->
-                {{-- <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div> --}}
-                <div class="swiper-pagination"></div>
             </div>
-        </div>
-        
+        @else
+            <div class="mt-20 flex justify-center">
+                <div>
+                    <div class="flex justify-center mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scroll-text"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>
+                    </div>
+                    <div>
+                        <p>Belum ada testimoni.</p>
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
 
     <div class="mt-20 md:mt-20 lg:mt-32 mb-10 text-slate-900">

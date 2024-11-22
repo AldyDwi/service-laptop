@@ -21,7 +21,7 @@
                                 <div class="p-3 rounded-md bg-gray-200 w-[35rem]">
                                     <p>{{ $report->action_taken }}</p>
                                 </div>
-                                <p class="mb-4 mt-3">Total biaya</p>
+                                <p class="mb-2 mt-3">Total biaya</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-[35rem]">
                                     <p>Rp {{ number_format($report->total_cost, 2) }}</p>
                                 </div>
@@ -44,7 +44,7 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="amount" class="block font-medium">Jumlah Pembayaran</label>
+                                    <label for="amount" class="block font-medium">Uang Diterima</label>
                                     <input type="text" name="amount" id="amount" class="border border-slate-400 rounded-lg p-2 mt-2 w-[28rem]" value="{{ $payment->amount }}" required>
                                 </div>
                                 <button type="submit" class="btn btn-ghost text-base bg-orange-500 text-white font-semibold rounded-lg p-2 mt-4 h-11 hover:bg-orange-600 w-20">Edit</button>

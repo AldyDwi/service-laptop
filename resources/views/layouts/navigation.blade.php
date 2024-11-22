@@ -16,6 +16,10 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    <x-nav-link class="font-semibold" :href="route('dashboard')">
+                        {{ __('Rekap Teknisi') }}
+                    </x-nav-link>
+
                     <x-dropdown align="left" width="48">
                         <x-slot name="trigger">
                             <x-nav-link class="mt-5 cursor-pointer font-semibold" :active="request()->routeIs('admin.list.index')">

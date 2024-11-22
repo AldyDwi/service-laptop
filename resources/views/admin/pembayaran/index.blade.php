@@ -13,31 +13,31 @@
 
     <div class="py-12 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div id='recipients' class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="mt-8">
                         <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                             <thead>
                                 <tr>
-                                    <th data-priority="1">Id</th>
-                                    <th data-priority="2">Booking</th>
-                                    <th data-priority="3">Tipe Bayar</th>
-                                    <th data-priority="4">Total Biaya</th>
-                                    <th data-priority="5">Uang diterima</th>
-                                    <th data-priority="6">Kembalian</th>
-                                    <th data-priority="7">Tgl Bayar</th>
-                                    <th data-priority="8">Aksi</th>
+                                    <th data-priority="1">No. Booking</th>
+                                    <th data-priority="2">Nama</th>
+                                    <th data-priority="4">Service</th>
+                                    <th data-priority="5">Tindakan</th>
+                                    <th data-priority="2">Tipe Bayar</th>
+                                    <th data-priority="3">Total Biaya</th>
+                                    <th data-priority="6">Tgl Bayar</th>
+                                    <th data-priority="7">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($payments as $payment)
                                 <tr class="border-b">
-                                    <td class="text-center">{{ $payment->id }}</td>
                                     <td class="text-center">{{ $payment->booking->booking_number }}</td>
+                                    <td class="text-center">{{ $payment->booking->customer->name }}</td>
+                                    <td>{{ $payment->booking->problem_description }}</td>
+                                    <td>{{ $payment->booking->serviceReport->action_taken }}</td>
                                     <td class="text-center">{{ $payment->paymentType->name }}</td>
                                     <td>Rp {{ number_format($payment->booking->serviceReport->total_cost) }}</td>
-                                    <td>Rp {{ number_format($payment->amount) }}</td>
-                                    <td>Rp {{ number_format($payment->change_amount) }}</td>
                                     <td class="text-center">{{ $payment->payment_date->format('d-m-Y') }}</td>
                                     <td>
                                         <div class="flex justify-center">

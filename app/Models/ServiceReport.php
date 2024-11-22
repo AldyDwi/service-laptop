@@ -16,16 +16,15 @@ class ServiceReport extends Model
         'action_taken',
         'time_estimate',
         'process_date',
+        'completion_date',
         'service_cost',
         'parts_cost',
         'total_cost',
     ];
 
     protected $casts = [
-        'service_cost' => 'decimal:2',
-        'parts_cost' => 'decimal:2',
-        'total_cost' => 'decimal:2',
-        'process_date' => 'date'
+        'process_date' => 'date',
+        'completion_date' => 'date'
     ];
 
     protected static function boot()

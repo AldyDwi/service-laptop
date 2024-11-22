@@ -53,6 +53,7 @@ class ReportController extends Controller
             'action_taken' => $request->action_taken,
             'time_estimate' => $request->time_estimate,
             'process_date' => Carbon::now('Asia/Jakarta'),
+            'completion_date' => null,
             'service_cost' => $request->service_cost,
             'parts_cost' => $request->parts_cost,
             'total_cost' => $total,

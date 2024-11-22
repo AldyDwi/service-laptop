@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\teknisi;
 
+use Carbon\Carbon;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,6 +23,13 @@ class TeknisiBookingController extends Controller
         $booking->update([
             'status' => 'Selesai'
         ]);
+
+        $serviceReport = $booking->serviceReport;
+        if ($serviceReport) {
+            $serviceReport->update([
+                'completion_date' => Carbon::now('Asia/Jakarta')
+            ]);
+        }
 
         // Mengirim pesan WhatsApp
         $curl = curl_init();
