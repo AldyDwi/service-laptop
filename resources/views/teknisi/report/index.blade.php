@@ -5,16 +5,6 @@
         </h2>
     </x-slot>
 
-    {{-- 'booking_id',
-    'technician_id',
-    'diagnosis',
-    'action_taken',
-    'time_estimate',
-    'process_date',
-    'service_cost',
-    'parts_cost',
-    'total_cost', --}}
-
     <div class="py-12 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

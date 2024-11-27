@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use Carbon\Carbon;
 use App\Models\Booking;
 use App\Models\Payment;
 use App\Models\PaymentType;
@@ -55,7 +56,7 @@ class PaymentController extends Controller
             'booking_id' => $booking_id,
             'amount' => $request->amount,
             'change_amount' => $changeAmount,
-            'payment_date' => now(),
+            'payment_date' => Carbon::now('Asia/Jakarta'),
         ]);
 
         $booking = Booking::findOrFail($booking_id);

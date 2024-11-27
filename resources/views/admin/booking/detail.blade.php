@@ -130,7 +130,11 @@
                             <div class="md:w-2/5">
                                 <p class="mb-2 mt-3">tanggal Selesai</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-80">
-                                    <p>{{ $booking->serviceReport->completion_date->format('d-m-Y') }}</p>
+                                    @if ($booking->serviceReport->completion_date == null)
+                                        <p>Belum selesai</p>
+                                    @else
+                                        <p>{{ $booking->serviceReport->completion_date->format('d-m-Y') }}</p> 
+                                    @endif
                                 </div>
                                 <p class="mb-2 mt-3">Biaya Service</p>
                                 <div class="p-3 rounded-md bg-gray-200 w-80">

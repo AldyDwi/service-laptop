@@ -5,6 +5,7 @@ namespace App\Http\Controllers\teknisi;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Booking;
+use App\Models\RekapTeknisi;
 use Illuminate\Http\Request;
 use App\Models\ServiceReport;
 use Illuminate\Support\Facades\DB;
@@ -52,7 +53,25 @@ class TeknisiController extends Controller
             $bookingsData[] = $bookingsPerMonth[$month] ?? 0;
         }
 
-        return view('teknisi.dashboard', compact('totalBooking', 'totalMenunggu', 'totalDiterima', 'totalProses', 'totalSelesai', 'totalDibayar',  'bookingsData', 'currentYear'
+        // Ambil data teknisi dengan rekap teknisi
+        $rekapTeknisi = RekapTeknisi::with('technician')
+            ->get()
+            ->map(function ($rekap) {
+                $totalService = ServiceReport::where('technician_id', $rekap->technician_id)->count();
+
+                $monthlyService = ServiceReport::where('technician_id', $rekap->technician_id)
+                    ->whereMonth('process_date', Carbon::now()->month)
+                    ->count();
+
+                return [
+                    'name' => $rekap->technician->name,
+                    'total_service' => $totalService,
+                    'monthly_service' => $monthlyService,
+                    'status' => $rekap->status,
+                ];
+            });
+
+        return view('teknisi.dashboard', compact('totalBooking', 'totalMenunggu', 'totalDiterima', 'totalProses', 'totalSelesai', 'totalDibayar',  'bookingsData', 'currentYear', 'rekapTeknisi'
         ));
     }
 }

@@ -61,6 +61,39 @@
                 </div>
             </div>
         </div>
+
+        <div id='recipients' class="bg-white overflow-hidden shadow-lg sm:rounded-lg mx-5 md:mx-6 lg:mx-16 mt-10">
+            <div class="p-6 text-gray-900">
+                <p class="text-xl font-semibold">Rekap Teknisi</p>
+                <div class="mt-5">
+                    <table id="example" class="stripe hover table-auto" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                        <thead>
+                            <tr>
+                                <th data-priority="1">Nama Teknisi</th>
+                                <th data-priority="2">Total Service</th>
+                                <th data-priority="3">Jumlah Service (Per Bulan)</th>
+                                <th data-priority="4">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($rekapTeknisi as $rekap)
+                            <tr class="border-b">
+                                <td>{{ $rekap['name'] }}</td>
+                                <td class="text-center">{{ $rekap['total_service'] }}</td>
+                                <td class="text-center">{{ $rekap['monthly_service'] }}</td>
+                                @if ($rekap['status'] == 'On Job')
+                                    <td class="text-center text-sm"><span class="p-2 bg-orange-500 rounded-lg text-white font-semibold">{{ $rekap['status'] }}</span></td>
+                                @elseif ($rekap['status'] == 'Available')
+                                    <td class="text-center text-sm"><span class="p-2 bg-lime-500 rounded-lg text-white font-semibold">{{ $rekap['status'] }}</span></td>
+                                @endif
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
     </div>
 
     {{-- h-[23.5rem] --}}

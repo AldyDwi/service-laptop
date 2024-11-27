@@ -4,6 +4,7 @@ namespace App\Http\Controllers\teknisi;
 
 use Carbon\Carbon;
 use App\Models\Booking;
+use App\Models\RekapTeknisi;
 use Illuminate\Http\Request;
 use App\Models\ServiceReport;
 use App\Http\Controllers\Controller;
@@ -62,6 +63,11 @@ class ReportController extends Controller
         // Update status booking menjadi 'Diproses'
         $booking = Booking::findOrFail($booking_id);
         $booking->update(['status' => 'Diproses']);
+
+        // Update status rekap teknisi menjadi 'On Job'
+        $teknisi = Auth::id();
+        RekapTeknisi::where('technician_id', $teknisi)
+            ->update(['status' => 'On Job']);
 
         return redirect()->route('teknisi.booking.index')->with('success', 'Booking diproses dan Report service berhasil ditambah');
     }

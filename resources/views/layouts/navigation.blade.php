@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link class="font-semibold" :href="route('dashboard')">
+                    <x-nav-link class="font-semibold" :href="route('admin.rekap.teknisi')" :active="request()->routeIs('admin.rekap.teknisi')">
                         {{ __('Rekap Teknisi') }}
                     </x-nav-link>
 
@@ -144,6 +144,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.rekap.teknisi')" :active="request()->routeIs('admin.rekap.teknisi')">
+                {{ __('Rekap Teknisi') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('category')" :active="request()->routeIs('category')">
                 {{ __('Kategori Service') }}

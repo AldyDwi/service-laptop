@@ -45,13 +45,13 @@
             </div>
             <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
-                    <p>Customer</p>
+                    <p>Jumlah Customer</p>
                     <p class="text-3xl font-bold mt-2">{{ $roleUserCount }}</p>
                 </div>
             </div>
             <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg h-28">
                 <div class="p-6 text-gray-900">
-                    <p>Teknisi</p>
+                    <p>Jumlah Teknisi</p>
                     <p class="text-3xl font-bold mt-2">{{ $roleTeknisiCount }}</p>
                 </div>
             </div>

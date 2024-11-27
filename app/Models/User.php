@@ -64,6 +64,11 @@ class User extends Authenticatable
         return $this->hasMany(ServiceReport::class, 'technician_id');
     }
 
+    public function rekapTeknisi()
+    {
+        return $this->hasOne(RekapTeknisi::class, 'technician_id', 'id');
+    }
+
     public function isAdmin(): bool
     {
         return $this->role->name === 'admin';

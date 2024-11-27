@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Fath Comp</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -203,5 +203,39 @@
             });
         </script>
         @endif
+
+        <script>
+            document.getElementById('filter_button').addEventListener('click', function () {
+                // Ambil nilai dari input tanggal
+                const startDate = document.getElementById('start_date').value;
+                const endDate = document.getElementById('end_date').value;
+        
+                // Ambil semua baris pada tabel
+                const rows = document.querySelectorAll('#example tbody tr');
+        
+                // Loop melalui setiap baris dan filter berdasarkan tanggal
+                rows.forEach(function(row) {
+                    const bookingDate = row.querySelector('td:nth-child(7)').textContent; // ambil kolom tgl booking
+                    const rowDate = new Date(bookingDate.split('-').reverse().join('-')); // format date untuk perbandingan
+        
+                    let showRow = true; // default show row
+        
+                    // Jika ada tanggal mulai dan tanggal akhir, filter sesuai rentang
+                    if (startDate && rowDate < new Date(startDate)) {
+                        showRow = false;
+                    }
+                    if (endDate && rowDate > new Date(endDate)) {
+                        showRow = false;
+                    }
+        
+                    // Menampilkan atau menyembunyikan baris
+                    if (showRow) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

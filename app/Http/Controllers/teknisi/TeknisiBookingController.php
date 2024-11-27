@@ -4,8 +4,10 @@ namespace App\Http\Controllers\teknisi;
 
 use Carbon\Carbon;
 use App\Models\Booking;
+use App\Models\RekapTeknisi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TeknisiBookingController extends Controller
 {
@@ -23,6 +25,11 @@ class TeknisiBookingController extends Controller
         $booking->update([
             'status' => 'Selesai'
         ]);
+
+        // Update status rekap teknisi menjadi 'Available'
+        $teknisi = Auth::id();
+        RekapTeknisi::where('technician_id', $teknisi)
+            ->update(['status' => 'Available']);
 
         $serviceReport = $booking->serviceReport;
         if ($serviceReport) {

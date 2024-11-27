@@ -89,7 +89,7 @@ Route::middleware(['auth', 'userMiddleware:1'])->group(function () {
     Route::put('/admin/user-admin/update/{id}', [UserAdminController::class, 'update'])->name('user.admin.update');
     Route::delete('/admin/user-admin/delete/{id}', [UserAdminController::class, 'destroy'])->name('user.admin.destroy');
 
-    // Kelola Teknisi
+    // Kelola Customer
     Route::get('/admin/user-customer', [UserCustomerController::class, 'index'])->name('user.customer.index');
     Route::get('/admin/user-customer/tambah', [UserCustomerController::class, 'create'])->name('user.customer.create');
     Route::post('/admin/user-customer/store', [UserCustomerController::class, 'store'])->name('user.customer.store');
@@ -97,7 +97,10 @@ Route::middleware(['auth', 'userMiddleware:1'])->group(function () {
     Route::put('/admin/user-customer/update/{id}', [UserCustomerController::class, 'update'])->name('user.customer.update');
     Route::delete('/admin/user-customer/delete/{id}', [UserCustomerController::class, 'destroy'])->name('user.customer.destroy');
 
-    // Kelola Customer
+    // Rekap Teknisi
+    Route::get('/admin/rekap-teknisi', [UserTeknisiController::class, 'rekap'])->name('admin.rekap.teknisi');
+
+    // Kelola Teknisi
     Route::get('/admin/user-teknisi', [UserTeknisiController::class, 'index'])->name('user.teknisi.index');
     Route::get('/admin/user-teknisi/tambah', [UserTeknisiController::class, 'create'])->name('user.teknisi.create');
     Route::post('/admin/user-teknisi/store', [UserTeknisiController::class, 'store'])->name('user.teknisi.store');

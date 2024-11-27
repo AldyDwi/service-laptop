@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\RekapTeknisi;
 use Illuminate\Http\Request;
+use App\Models\ServiceReport;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
@@ -18,6 +21,29 @@ class UserTeknisiController extends Controller
             $query->where('name', 'teknisi');
         })->get();
         return view('admin.userTeknisi.index', compact('teknisis'));
+    }
+
+    public function rekap()
+    {
+        // Ambil data teknisi dengan rekap teknisi
+        $rekapTeknisi = RekapTeknisi::with('technician')
+            ->get()
+            ->map(function ($rekap) {
+                $totalService = ServiceReport::where('technician_id', $rekap->technician_id)->count();
+
+                $monthlyService = ServiceReport::where('technician_id', $rekap->technician_id)
+                    ->whereMonth('process_date', Carbon::now()->month)
+                    ->count();
+
+                return [
+                    'name' => $rekap->technician->name,
+                    'total_service' => $totalService,
+                    'monthly_service' => $monthlyService,
+                    'status' => $rekap->status,
+                ];
+            });
+
+        return view('admin.rekapTeknisi.index', compact('rekapTeknisi'));
     }
 
     /**
@@ -41,13 +67,18 @@ class UserTeknisiController extends Controller
             'password' => ['required', 'confirmed'],
         ]);
 
-        User::create([
+        $teknisi = User::create([
             'name' => $request->name,
             'hp' => $request->hp,
             'alamat' => $request->alamat,
             'email' => $request->email,
             'role_id' => 2,
             'password' => Hash::make($request->password),
+        ]);
+
+        RekapTeknisi::create([
+            'technician_id' => $teknisi->id,
+            'status' => 'Available'
         ]);
 
         return redirect()->route('user.teknisi.index')->with('success', 'User teknisi berhasil ditambahkan.');
