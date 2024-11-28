@@ -23,17 +23,23 @@ class UserTeknisiController extends Controller
         return view('admin.userTeknisi.index', compact('teknisis'));
     }
 
-    public function rekap()
+    public function rekap(Request $request)
     {
-        // Ambil data teknisi dengan rekap teknisi
+        $filterMonth = $request->input('month');
+
         $rekapTeknisi = RekapTeknisi::with('technician')
             ->get()
-            ->map(function ($rekap) {
+            ->map(function ($rekap) use ($filterMonth) {
                 $totalService = ServiceReport::where('technician_id', $rekap->technician_id)->count();
 
-                $monthlyService = ServiceReport::where('technician_id', $rekap->technician_id)
-                    ->whereMonth('process_date', Carbon::now()->month)
-                    ->count();
+                $monthlyServiceQuery = ServiceReport::where('technician_id', $rekap->technician_id);
+                if ($filterMonth) {
+                    $monthlyServiceQuery->whereMonth('process_date', $filterMonth);
+                } else {
+                    $monthlyServiceQuery->whereMonth('process_date', Carbon::now()->month);
+                }
+
+                $monthlyService = $monthlyServiceQuery->count();
 
                 return [
                     'name' => $rekap->technician->name,
@@ -42,6 +48,10 @@ class UserTeknisiController extends Controller
                     'status' => $rekap->status,
                 ];
             });
+
+        if ($request->ajax()) {
+            return response()->json($rekapTeknisi);
+        }
 
         return view('admin.rekapTeknisi.index', compact('rekapTeknisi'));
     }

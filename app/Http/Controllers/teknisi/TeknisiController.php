@@ -13,7 +13,7 @@ use App\Http\Controllers\Controller;
 
 class TeknisiController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
         // Total booking
         $totalBooking = Booking::count();
 
@@ -53,15 +53,21 @@ class TeknisiController extends Controller
             $bookingsData[] = $bookingsPerMonth[$month] ?? 0;
         }
 
-        // Ambil data teknisi dengan rekap teknisi
+        $filterMonth = $request->input('month');
+
         $rekapTeknisi = RekapTeknisi::with('technician')
             ->get()
-            ->map(function ($rekap) {
+            ->map(function ($rekap) use ($filterMonth) {
                 $totalService = ServiceReport::where('technician_id', $rekap->technician_id)->count();
 
-                $monthlyService = ServiceReport::where('technician_id', $rekap->technician_id)
-                    ->whereMonth('process_date', Carbon::now()->month)
-                    ->count();
+                $monthlyServiceQuery = ServiceReport::where('technician_id', $rekap->technician_id);
+                if ($filterMonth) {
+                    $monthlyServiceQuery->whereMonth('process_date', $filterMonth);
+                } else {
+                    $monthlyServiceQuery->whereMonth('process_date', Carbon::now()->month);
+                }
+
+                $monthlyService = $monthlyServiceQuery->count();
 
                 return [
                     'name' => $rekap->technician->name,
@@ -71,7 +77,12 @@ class TeknisiController extends Controller
                 ];
             });
 
+        if ($request->ajax()) {
+            return response()->json($rekapTeknisi);
+        }
+
         return view('teknisi.dashboard', compact('totalBooking', 'totalMenunggu', 'totalDiterima', 'totalProses', 'totalSelesai', 'totalDibayar',  'bookingsData', 'currentYear', 'rekapTeknisi'
         ));
     }
+
 }
