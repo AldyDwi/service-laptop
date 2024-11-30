@@ -9,7 +9,24 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div id='recipients' class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <div class="mt-2">
+
+                    <div class="flex items-center mb-4">
+                        <div class="mr-2">
+                            <label for="start_date" class="block text-sm font-medium text-gray-700">Dari Tanggal</label>
+                            <input type="date" id="start_date" name="start_date" class="mt-1 p-2 border rounded-lg">
+                        </div>
+                        <div class="mr-2">
+                            <label for="end_date" class="block text-sm font-medium text-gray-700">Sampai Tanggal</label>
+                            <input type="date" id="end_date" name="end_date" class="mt-1 p-2 border rounded-lg">
+                        </div>
+                        <div class="mt-6">
+                            <button id="filter_button" class="px-4 py-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600 font-semibold w-20">
+                                Filter
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
                         <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                             <thead>
                                 <tr>
