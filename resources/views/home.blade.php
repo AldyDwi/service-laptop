@@ -242,7 +242,7 @@
             <p class="text-center text-base mt-10 md:w-[35rem] font-semibold px-3">Kepercayaan Anda adalah prioritas kami. Berikut adalah cerita dari pelanggan yang telah merasakan kualitas layanan kami.</p>
         </div>
         @if ($testimonials && $testimonials->count() > 0)
-            <div class="flex justify-center mt-20 px-10">
+            <div class="flex justify-center mt-20 ms:px-5 md:px-10">
                 <div class="swiper-container w-full overflow-hidden h-72 px-5 py-5 relative">
                     <div class="swiper-wrapper">
                         <!-- Setiap testimonial harus berada di dalam div `swiper-slide` -->
